@@ -1,5 +1,8 @@
 import './App.css'
 import {useState} from "react";
+import Button from "./components/buttons/Button.jsx";
+import Input from "./components/textinput/Input.jsx";
+import Button2 from "./components/buttons/Button2.jsx";
 
 function App() {
 
@@ -33,7 +36,7 @@ function App() {
 
     function handleChange(e) {
         /*const changeFieldName = e.target.name;*/
-        const { name, value, type, checked } = e.target;
+        const {name, value, type, checked} = e.target;
         setFormstate((prevState) => ({
             ...prevState,
             /*[changeFieldName]: e.target.value,*/
@@ -59,115 +62,107 @@ function App() {
                 <h1>Fruitmand bezorgservice</h1>
                 <div>
                     <h2>Aardbeien</h2>
-                    <button
+
+                    <Button
                         type="button"
+                        text="+"
                         onClick={() => setAardbei(Aardbei + 1)}
-                    >
-                        +
-                    </button>
+                    />
                     <p>{Aardbei}</p>
-                    <button
+
+                    <Button
                         type="button"
+                        text="-"
                         onClick={Aardbei < 1 ? Aardbei = 0 : () => setAardbei(Aardbei - 1)}
-                    >
-                        -
-                    </button>
+                    />
                 </div>
                 <div>
                     <h2>Bananen</h2>
-                    <button
+                    <Button
                         type="button"
+                        text="+"
                         onClick={() => setBanaan(Banaan + 1)}
-                    >
-                        +
-                    </button>
+                    />
                     <p>{Banaan}</p>
-                    <button
+                    <Button
                         type="button"
+                        text="-"
                         onClick={Banaan < 1 ? Banaan = 0 : () => setBanaan(Banaan - 1)}
-                    >
-                        -
-                    </button>
+                    />
                 </div>
                 <div>
                     <h2>Appels</h2>
-                    <button
+
+                    <Button
                         type="button"
+                        text="+"
                         onClick={() => setAppels(Appels + 1)}
-                    >
-                        +
-                    </button>
+                    />
                     <p>{Appels}</p>
-                    <button
+
+                    <Button
                         type="button"
+                        text="-"
                         onClick={Appels < 1 ? Appels = 0 : () => setAppels(Appels - 1)}
-                    >
-                        -
-                    </button>
+                    />
                 </div>
                 <div>
                     <h2>Kiwis</h2>
-                    <button
+                    <Button
                         type="button"
+                        text="+"
                         onClick={() => setKiwis(Kiwis + 1)}
-                    >
-                        +
-                    </button>
+                    />
                     <p>{Kiwis}</p>
-                    <button
+                    <Button
                         type="button"
+                        text="-"
                         onClick={Kiwis < 1 ? Kiwis = 0 : () => setKiwis(Kiwis - 1)}
-                    >
-                        -
-                    </button>
+                    />
                 </div>
-                <button onClick={handleClickreset}>Reset</button>
+                <Button2
+                    onClick={handleClickreset}
+                    text="Reset"
+                />
+                {/*<button onClick={handleClickreset}>Reset</button>*/}
             </article>
             <article>
-                <div>
-                    <label>Voornaam</label>
-                    <input
-                        type="text"
-                        name="firstname"
-                        value={Formstate.firstname}
-                        onChange={(e) => {
-                            handleChange(e);
-                        }}
-                    />
-                </div>
-                <div>
-                    <label>Achternaam</label>
-                    <input
-                        type="text"
-                        name="lastname"
-                        value={Formstate.lastname}
-                        onChange={(e) => {
-                            handleChange(e);
-                        }}
-                    />
-                </div>
-                <div>
-                    <label>Leeftijd</label>
-                    <input
-                        type="text"
-                        name="age"
-                        value={Formstate.age}
-                        onChange={(e) => {
-                            handleChange(e);
-                        }}
-                    />
-                </div>
-                <div>
-                    <label>Postcode</label>
-                    <input
-                        type="text"
-                        name="postcode"
-                        value={Formstate.postcode}
-                        onChange={(e) => {
-                            handleChange(e);
-                        }}
-                    />
-                </div>
+                <Input
+                    text="Voornaam"
+                    type="text"
+                    name="firstname"
+                    value={Formstate.firstname}
+                    onChange={(e) => {
+                        handleChange(e)
+                    }}
+                />
+                <Input
+                    text="Achternaam"
+                    type="text"
+                    name="lastname"
+                    value={Formstate.lastname}
+                    onChange={(e) => {
+                        handleChange(e)
+                    }}
+                />
+                <Input
+                    text="Leeftijd"
+                    type="text"
+                    name="age"
+                    value={Formstate.age}
+                    onChange={(e) => {
+                        handleChange(e)
+                    }}
+                />
+                <Input
+                    text="Postcode"
+                    type="text"
+                    name="postcode"
+                    value={Formstate.postcode}
+                    onChange={(e) => {
+                        handleChange(e)
+                    }}
+                />
                 <div>
                     <h3>Bezorgfrequentie</h3>
                     <select
@@ -229,7 +224,10 @@ function App() {
                         <label htmlFor="voorwaarde">Ik ga akkoord met de voorwaarde</label>
                     </div>
                 </div>
-                <button onClick={handleClicksent}>Versturen</button>
+                <Button2
+                    onClick={handleClicksent}
+                    text="Versturen"
+                />
             </article>
         </>
     )
